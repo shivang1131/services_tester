@@ -1,0 +1,9 @@
+
+
+branch_name=$(git rev-parse --abbrev-ref HEAD)
+
+if [[ ! "$branch_name" =~ ^(feature|bugfix|hotfix|release)/[a-zA-Z0-9_-]+$ ]]; then
+  echo "Error: Branch name '$branch_name' does not follow the naming convention."
+  echo "Please use one of the following prefixes: 'feature/', 'bugfix/', 'hotfix/', or 'release/' in your branch name."
+  exit 1
+fi
